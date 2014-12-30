@@ -23,6 +23,7 @@ def run_public_stream():
     while True:
         try:
             stream = PublicStreamer(*twitter_cred)
+            # note to self with internet: need to look up how to track multiple phrases
             stream.statuses.filter(track=search_phrases)
         except Exception as e:
             logging.exception(e)
@@ -35,7 +36,9 @@ if __name__ == "__main__":
     p1 = Process(target=run_user_stream)
     p2 = Process(target=run_public_stream)
 
-    processes = [p1, p2]
+    processes = [
+        p1, p2
+    ]
 
     # start then join all processes
     for process in processes:
