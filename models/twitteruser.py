@@ -1,22 +1,17 @@
-# Accepts User hash and extracts useful info
-# for easy use
+from config.common import BOT_ID
+
 class TwitterUser(object):
-    def __init__(data):
+    '''
+        Given a User hash without root from the Twitter API, returns
+        a User object with easy access to frequently-used attributes
+    '''
+    def __init__(self, data):
         self.data = data
 
-    self.username = self.data['screen_name']
+        self.username = self.data['screen_name']
+        self.display_name = self.data['name']
+        self.id = self.data['id']
 
-    self.display_name = self.data['name']
-
-    self.id = self.data['id']
-
-
-# TODO: pull this info from the bot itself
-#       for now, manually set.
-bot_info = {
-    'screen_name': 'intwentyfifteen',
-    'name': 'Best Intention',
-    'id': 2921127146
-}
-
-BOT_USER = TwitterUser(bot_info)
+    def is_not_bot(self):
+        '''Boolean, returns true if user is not the app's Twitter bot'''
+        return self.id != BOT_ID

@@ -1,9 +1,9 @@
 import logging
 from time import sleep
 from multiprocessing import Process
-from stream import UserStreamer, PublicStreamer
-from common import twitter_cred
-from phrases import search_phrases
+from twitter.stream import UserStreamer, PublicStreamer
+from config.common import twitter_cred
+from config.phrases import search_phrases
 
 def run_user_stream():
     # start Twitter stream for user, restart with delay on crash
@@ -37,12 +37,11 @@ if __name__ == "__main__":
     p2 = Process(target=run_public_stream)
 
     processes = [
-        p1, p2
+        p1#, p2
     ]
 
-    # start then join all processes
     for process in processes:
         process.start()
 
     for process in processes:
-        process.join
+        process.join()

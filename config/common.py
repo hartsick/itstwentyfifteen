@@ -6,3 +6,5 @@ twitter_cred = [
     os.environ.get('NEWYEARS_ACCESS_TOKEN'),
     os.environ.get('NEWYEARS_ACCESS_TOKEN_SECRET')
 ]
+
+BOT_ID = 2951110814
