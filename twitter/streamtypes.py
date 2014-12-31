@@ -15,6 +15,8 @@ class UserStreamer(StreamListener):
         Tweeta().follow_back(follow)
 
     def on_reply(self, status):
+        print "sender not self:"
+        print status.sender_not_self()
         if status.sender_not_self() and status.is_reply_to_bot():
             text = status.stripped_text()
 

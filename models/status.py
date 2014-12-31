@@ -66,8 +66,6 @@ class Status(TwitterObject):
             if punc in stripped_text:
                 stripped_text = stripped_text.replace(punc, "")
 
-        print "Original text: {0}".format(self.text)
-        print "Stripped text: {0}".format(stripped_text)
         return stripped_text
 
     def check_type(self):
