@@ -6,8 +6,6 @@ class Follow(TwitterObject):
         Class for a received Follow from the Twitter API.
         Provides easy access to commonly used attributes.
     '''
-    def __init__(self, data):
-        super(Follow, self).__init__(data)
 
     def recipient(self):
         '''Returns a TwitterUser object for the user being followed'''
@@ -26,6 +24,5 @@ class Follow(TwitterObject):
     def sender_not_self(self):
         '''Boolean, Returns true if follower is not the app's Twitter bot'''
         sender = self.sender()
-        print sender.is_not_bot()
 
         return sender.is_not_bot()

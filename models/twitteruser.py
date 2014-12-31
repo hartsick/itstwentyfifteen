@@ -14,4 +14,8 @@ class TwitterUser(object):
 
     def is_not_bot(self):
         '''Boolean, returns true if user is not the app's Twitter bot'''
-        return self.id != BOT_ID
+        return not self.is_bot()
+
+    def is_bot(self):
+        '''Boolean, returns true if user is the app's Twitter bot'''
+        return self.id == BOT_ID
