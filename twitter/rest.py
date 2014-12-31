@@ -1,3 +1,4 @@
+import random
 from twython import Twython
 from config.common import twitter_cred
 
@@ -33,9 +34,10 @@ class Tweeta(object):
             if status_type:
                 text = ""
                 if status_type is 'resolution':
-                    text = "let's do this. we believe in you!!"
+                    sentences = ["let's do this", "sweet.", "good luck with that", "interesting", "hm, okay!", "niiice"]
+                    text = random.choice(sentences)
                 elif status_type is 'help':
-                    text = "send me your new years resolution in the format 'in 2015, I' and I'll retweet it for all to see! we're in this together."
+                    text = "send me your new year's resolution or prediction with 'in 2015' and I'll retweet it for all to see"
                 elif status_type is 'complete':
                     text = "GOOD JOB!! :D"
 

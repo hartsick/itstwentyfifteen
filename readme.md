@@ -1,6 +1,6 @@
 In Twenty Fifteen
 =================
 
-Resolutions, resignations, and predictions, anonymously submitted.
+Community-based resolutions, resignations, and predictions for the new year.
 
 [InTwentyFifteen on Twitter](http://twitter.com/intwentyfifteen).

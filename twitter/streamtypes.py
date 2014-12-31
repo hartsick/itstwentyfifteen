@@ -17,7 +17,7 @@ class UserStreamer(StreamListener):
     def on_reply(self, status):
         text = status.stripped_text()
 
-        if 'in 2015 i' or 'i fucking did it' in text:
+        if 'in 2015' or 'i fucking did it' in text:
             Tweeta().retweet(status)
 
         # respond appropriately
