@@ -15,29 +15,15 @@ def run_user_stream():
         except Exception as e:
             logging.exception(e)
 
-        sleep(60)
-
-def run_public_stream():
-    # start Twitter stream for search, restart with delay on crash
-    #   -- for pulling random resolutions from twitter
-    while True:
-        try:
-            stream = PublicStreamer(*twitter_cred)
-            # note to self with internet: need to look up how to track multiple phrases
-            stream.statuses.filter(track=search_phrases)
-        except Exception as e:
-            logging.exception(e)
-
-        sleep(60)
-
+        sleep(30)
 
 if __name__ == "__main__":
 
     p1 = Process(target=run_user_stream)
-    p2 = Process(target=run_public_stream)
 
+    # TODO: add periodic random tweets
     processes = [
-        p1#, p2
+        p1
     ]
 
     for process in processes:
