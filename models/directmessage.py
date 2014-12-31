@@ -40,20 +40,18 @@ class DirectMessage(TwitterObject):
     def text_without_mentions(self):
         '''Returns a string copy of the original DM text with any usernames redacted'''
         edited_text = self.text
-        for user in self.mentions:
-            print user
-            display_name = user
-            edited_text.replace("@{0}".format(display_name), "[...]")
+        for user_hash in self.mentions:
+            edited_text = edited_text.replace(user_hash['screen_name'], "[...]")
 
         return edited_text
 
-    def compose_response(self):
-        '''Generate a response to this DM'''
-        response = None
-        # don't respond to yourself
-        if self.sender_not_self():
-            response_text = self.text_without_mentions()
-            respond_to_user = self.sender()
-            response = [response_text, respond_to_user]
+    # def compose_response(self):
+    #     '''Generate a response to this DM'''
+    #     response = None
+    #     # don't respond to yourself
+    #     if self.sender_not_self():
+    #         response_text = self.text_without_mentions()
+    #         respond_to_user = self.sender()
+    #         response = [response_text, respond_to_user]
 
-        return response
+    #     return response

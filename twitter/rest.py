@@ -5,6 +5,11 @@ class Tweeta(object):
     def __init__(self):
         self.twitter = Twython(*twitter_cred)
 
+    def update_status(self, text):
+        # TODO: Include reply_id to thread conversations
+        params = {'status': text}
+        self.twitter.update_status(**params)
+
     def send_dm(self, text, user):
         params = {'text': text, 'user_id': user.id, 'screen_name': user.username}
         self.twitter.send_direct_message(**params)

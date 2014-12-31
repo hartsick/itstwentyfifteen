@@ -1,7 +1,7 @@
 import logging
 from time import sleep
 from multiprocessing import Process
-from twitter.stream import UserStreamer, PublicStreamer
+from twitter.streamtypes import UserStreamer, PublicStreamer
 from config.common import twitter_cred
 from config.phrases import search_phrases
 
