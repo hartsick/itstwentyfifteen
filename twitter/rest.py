@@ -21,10 +21,9 @@ class Tweeta(object):
             self.twitter.create_friendship(**params)
 
     def retweet(self, status):
-        if status.sender_not_self():
-            print "Retweeting: {0}".format(status.id_str)
-            params = {'id': status.id_str}
-            self.twitter.retweet(**params)
+        print "Retweeting: {0}".format(status.id_str)
+        params = {'id': status.id_str}
+        self.twitter.retweet(**params)
 
     def reply_to_status(self, status):
         print "reply received"

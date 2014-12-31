@@ -15,13 +15,14 @@ class UserStreamer(StreamListener):
         Tweeta().follow_back(follow)
 
     def on_reply(self, status):
-        text = status.stripped_text()
+        if status.sender_not_self() and status.is_reply_to_bot():
+            text = status.stripped_text()
 
-        if 'in 2015' or 'i fucking did it' in text:
-            Tweeta().retweet(status)
+            if 'in 2015' or 'i fucking did it' in text:
+                Tweeta().retweet(status)
 
-        # respond appropriately
-        Tweeta().reply_to_status(status)
+            # respond appropriately
+            Tweeta().reply_to_status(status)
 
 class PublicStreamer(StreamListener):
     '''
