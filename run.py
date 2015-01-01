@@ -3,7 +3,6 @@ from time import sleep
 from multiprocessing import Process
 from twitter.streamtypes import UserStreamer, PublicStreamer
 from config.common import twitter_cred
-from config.phrases import search_phrases
 
 def run_user_stream():
     # start Twitter stream for user, restart with delay on crash
